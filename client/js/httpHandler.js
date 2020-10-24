@@ -13,8 +13,8 @@
       type: 'GET',
       url: serverUrl,
       success:(data) => {
-        console.log('cUnSoLe.LoRg!!')
-        console.log(data)
+        // console.log('cUnSoLe.LoRg!!')
+        // console.log(data)
         SwimTeam.move(data);
       }
     })
