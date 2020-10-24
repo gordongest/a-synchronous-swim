@@ -21,10 +21,6 @@ module.exports.initialize = (queue) => {
 
 module.exports.router = (req, res, next = ()=>{}) => {
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
-  // console.log('cunsole.lorg!!')
-  // res.writeHead(200, headers);
-  // res.end('up');
-  // next();
   if (req.method === 'GET' && req.url === '/') {
     res.writeHead(200, headers);
     res.end(messageQueue.dequeue());
