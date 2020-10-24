@@ -1,15 +1,32 @@
 (function() {
 
-  const serverUrl = 'http://127.0.0.1:3000';
+  const serverUrl = 'http://localhost:3000/quote';
 
   //
   // TODO: build the swim command fetcher here
   //
 
+  // alert('cunsole.lorg!')
+
+  const getDirection = () => {
+    $.ajax({
+      type: 'GET',
+      url: serverUrl,
+      success:(data) => {
+        console.log('cUnSoLe.LoRg!!')
+        console.log(data)
+        SwimTeam.move(data);
+      }
+    })
+  }
+
+  setInterval(getDirection, 5000)
+
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
   /////////////////////////////////////////////////////////////////////
+
 
   const ajaxFileUplaod = (file) => {
     var formData = new FormData();
@@ -17,7 +34,7 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: serverUrl,
       cache: false,
       contentType: false,
       processData: false,

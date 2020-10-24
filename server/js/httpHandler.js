@@ -2,6 +2,14 @@ const fs = require('fs');
 const path = require('path');
 const headers = require('./cors');
 const multipart = require('./multipartUtils');
+const directions = ['up', 'down', 'left', 'right'];
+
+function randomNum(min, max) {
+  min = Math.ceil(min);
+  max = Math.max(max);
+  return Math.floor(Math.random() * (max-min)) + min;
+}
+
 
 // Path for the background image ///////////////////////
 module.exports.backgroundImageFile = path.join('.', 'background.jpg');
@@ -15,6 +23,7 @@ module.exports.initialize = (queue) => {
 module.exports.router = (req, res, next = ()=>{}) => {
   console.log('Serving request type ' + req.method + ' for url ' + req.url);
   res.writeHead(200, headers);
+  res.write(directions[randomNum(0, 3)])
   res.end();
   next(); // invoke next() at the end of a request to help with testing!
 };

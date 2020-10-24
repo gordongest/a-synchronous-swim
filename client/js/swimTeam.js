@@ -1,12 +1,13 @@
 const SwimTeam = {
 
   // direction, start and max all need to match the CSS
-  direction: 'left',
+  direction: ['left', 'right', 'up', 'down'],
   coords: { top: 100, left: 100 },
   max: { top: 0, left: 0, bottom: 295, right: 240 },
 
   move: (direction) => {
     if (!SwimTeam.valid(direction)) {
+      // we're gonna have to change this
       return;
     }
     console.log(`Lets go: ${direction}`);
@@ -65,7 +66,7 @@ const SwimTeam = {
         SwimTeam.coords.left += 5;
       }
       break;
-    } 
+    }
   }
 
 };
